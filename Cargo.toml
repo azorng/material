@@ -5,7 +5,7 @@ version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/azorng/iris"
 readme = "README.md"
-keywords = ["rust", "cli", "color", "terminal", "material-design", "tui", "tui-rs", "material"]
+keywords = ["cli", "color", "terminal", "palette", "material design"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
