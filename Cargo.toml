@@ -1,0 +1,12 @@
+[package]
+name = "iris"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tui = "0.18"
+crossterm = "0.23"
+colors-transform = "0.2.11"
+clipboard = "0.5.0"
