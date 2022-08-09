@@ -27,13 +27,17 @@ impl App {
         }
     }
 
+    pub fn delete_input(&mut self) {
+        self.input.pop();
+    }
+
     fn color_search(&mut self) {
         self.colors.iter().for_each(|color| {
-            color.variants.iter().for_each(|color_var| {
-                if color_var.0.to_lowercase() == self.input.to_lowercase() {
+            color.iter().for_each(|color_variant| {
+                if color_variant.0.to_lowercase() == self.input.to_lowercase() {
                     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
-                    ctx.set_contents(color_var.1.to_owned()).unwrap();
-                    self.message = format!("{} copied to clipboard!", color_var.1);
+                    ctx.set_contents(color_variant.1.to_owned()).unwrap();
+                    self.message = format!("{} copied to clipboard!", color_variant.1);
                 }
             })
         });

@@ -6,7 +6,7 @@ use app::App;
 use ui::ui;
 
 use crossterm::{
-    event::{self, DisableMouseCapture, EnableMouseCapture, Event, KeyCode},
+    event::{read as read_event, Event, KeyCode},
     execute,
     terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
 };
@@ -20,7 +20,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // setup terminal
     enable_raw_mode()?;
     let mut stdout = io::stdout();
-    execute!(stdout, EnterAlternateScreen, EnableMouseCapture)?;
+    execute!(stdout, EnterAlternateScreen)?;
     let backend = CrosstermBackend::new(stdout);
     let mut terminal = Terminal::new(backend)?;
 
@@ -28,15 +28,10 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // restore terminal
     disable_raw_mode()?;
-    execute!(
-        terminal.backend_mut(),
-        LeaveAlternateScreen,
-        DisableMouseCapture
-    )?;
-    terminal.show_cursor()?;
+    execute!(terminal.backend_mut(), LeaveAlternateScreen)?;
 
     if let Err(err) = res {
-        println!("{:?}", err)
+        println!("{:?}", err);
     }
 
     Ok(())
@@ -48,14 +43,12 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>) -> io::Result<()> {
     loop {
         terminal.draw(|f| ui(f, &app))?;
 
-        if let Event::Key(key) = event::read()? {
+        if let Event::Key(key) = read_event()? {
             match key.code {
                 KeyCode::Esc => {
                     return Ok(());
                 }
-                KeyCode::Backspace => {
-                    app.input.pop();
-                }
+                KeyCode::Backspace => app.delete_input(),
                 KeyCode::Char(c) => app.handle_input(c),
                 _ => {}
             }
