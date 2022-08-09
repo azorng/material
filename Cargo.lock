@@ -86,20 +86,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "iris"
-version = "0.1.0"
-dependencies = [
- "clipboard",
- "colors-transform",
- "crossterm",
- "tui",
-]
-
-[[package]]
 name = "libc"
-version = "0.2.126"
+version = "0.2.128"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "349d5a591cd28b49e1d1037471617a32ddcda5731b99419008085f72d5a53836"
+checksum = "95f2a930906a03d4ee59113b31586c057c94f4d40c9fe90f21597a8b6822bfd8"
 
 [[package]]
 name = "lock_api"
@@ -127,6 +117,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62bb907fe88d54d8d9ce32a3cceab4218ed2f6b7d35617cafe9adf84e43919cb"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "material"
+version = "0.1.0"
+dependencies = [
+ "clipboard",
+ "colors-transform",
+ "crossterm",
+ "tui",
 ]
 
 [[package]]

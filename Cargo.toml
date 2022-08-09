@@ -1,9 +1,9 @@
 [package]
-name = "iris"
+name = "material"
 description = "A material design color palette for the terminal"
 version = "0.1.0"
 edition = "2021"
-repository = "https://github.com/azorng/iris"
+repository = "https://github.com/azorng/material"
 readme = "README.md"
 keywords = ["cli", "color", "terminal", "palette", "material-design"]
 license = "MIT"
