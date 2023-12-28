@@ -1,6 +1,5 @@
 use crate::app::App;
 use crate::color_data::{N_COLORS, N_VARIANTS};
-use colors_transform::{Color as _Color, Rgb};
 use ratatui::{
     layout::{Alignment, Rect},
     style::{Color, Style},
@@ -21,8 +20,7 @@ pub fn ui(f: &mut Frame, app: &App) {
     for color in app.colors {
         pos.1 = top;
         for (i, color_var) in color.iter().enumerate() {
-            let rgb = Rgb::from_hex_str(color_var.1).unwrap().as_tuple();
-            let bg_color = Color::Rgb(rgb.0 as u8, rgb.1 as u8, rgb.2 as u8);
+            let bg_color = color_var.1.into();
             let text_color = if i < 5 { Color::Black } else { Color::White };
             f.render_widget(
                 Block::default()
