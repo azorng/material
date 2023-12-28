@@ -1,15 +1,14 @@
 use crate::app::App;
 use crate::color_data::{N_COLORS, N_VARIANTS};
 use colors_transform::{Color as _Color, Rgb};
-use tui::{
-    backend::Backend,
+use ratatui::{
     layout::{Alignment, Rect},
     style::{Color, Style},
     widgets::{Block, BorderType, Borders},
     Frame,
 };
 
-pub fn ui<B: Backend>(f: &mut Frame<B>, app: &App) {
+pub fn ui(f: &mut Frame, app: &App) {
     let sq_height = f.size().height / (N_VARIANTS as u16 + 5);
     let sq_width = f.size().width / (N_COLORS as u16);
 

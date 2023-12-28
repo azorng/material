@@ -11,7 +11,7 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tui = "0.18"
-crossterm = "0.23"
+ratatui = "0.25.0"
+crossterm = "0.27.0"
 colors-transform = "0.2.11"
 clipboard = "0.5.0"
