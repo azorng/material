@@ -1,14 +1,14 @@
 use material::{colors::*, HexColor};
 
-pub const N_VARIANTS: usize = 10;
+pub const N_VARIANTS: usize = 14;
 pub const N_COLORS: usize = 19;
 
 type Color = (&'static str, HexColor);
-type ColorVariants = [Color; N_VARIANTS];
+type ColorVariants = &'static [Color];
 pub type Colors = [ColorVariants; N_COLORS];
 
 pub const COLOR_DATA: Colors = [
-    [
+    &[
         ("A0", RED_50),
         ("A1", RED_100),
         ("A2", RED_200),
@@ -19,8 +19,12 @@ pub const COLOR_DATA: Colors = [
         ("A7", RED_700),
         ("A8", RED_800),
         ("A9", RED_900),
+        ("AA", RED_A100),
+        ("AB", RED_A200),
+        ("AC", RED_A400),
+        ("AD", RED_A700),
     ],
-    [
+    &[
         ("B0", PINK_50),
         ("B1", PINK_100),
         ("B2", PINK_200),
@@ -31,8 +35,12 @@ pub const COLOR_DATA: Colors = [
         ("B7", PINK_700),
         ("B8", PINK_800),
         ("B9", PINK_900),
+        ("BA", PINK_A100),
+        ("BB", PINK_A200),
+        ("BC", PINK_A400),
+        ("BD", PINK_A700),
     ],
-    [
+    &[
         ("C0", PURPLE_50),
         ("C1", PURPLE_100),
         ("C2", PURPLE_200),
@@ -43,8 +51,12 @@ pub const COLOR_DATA: Colors = [
         ("C7", PURPLE_700),
         ("C8", PURPLE_800),
         ("C9", PURPLE_900),
+        ("CA", PURPLE_A100),
+        ("CB", PURPLE_A200),
+        ("CC", PURPLE_A400),
+        ("CD", PURPLE_A700),
     ],
-    [
+    &[
         ("D0", DEEP_PURPLE_50),
         ("D1", DEEP_PURPLE_100),
         ("D2", DEEP_PURPLE_200),
@@ -55,8 +67,12 @@ pub const COLOR_DATA: Colors = [
         ("D7", DEEP_PURPLE_700),
         ("D8", DEEP_PURPLE_800),
         ("D9", DEEP_PURPLE_900),
+        ("DA", DEEP_PURPLE_A100),
+        ("DB", DEEP_PURPLE_A200),
+        ("DC", DEEP_PURPLE_A400),
+        ("DD", DEEP_PURPLE_A700),
     ],
-    [
+    &[
         ("E0", INDIGO_50),
         ("E1", INDIGO_100),
         ("E2", INDIGO_200),
@@ -67,8 +83,12 @@ pub const COLOR_DATA: Colors = [
         ("E7", INDIGO_700),
         ("E8", INDIGO_800),
         ("E9", INDIGO_900),
+        ("EA", INDIGO_A100),
+        ("EB", INDIGO_A200),
+        ("EC", INDIGO_A400),
+        ("ED", INDIGO_A700),
     ],
-    [
+    &[
         ("F0", BLUE_50),
         ("F1", BLUE_100),
         ("F2", BLUE_200),
@@ -79,8 +99,12 @@ pub const COLOR_DATA: Colors = [
         ("F7", BLUE_700),
         ("F8", BLUE_800),
         ("F9", BLUE_900),
+        ("FA", BLUE_A100),
+        ("FB", BLUE_A200),
+        ("FC", BLUE_A400),
+        ("FD", BLUE_A700),
     ],
-    [
+    &[
         ("G0", LIGHT_BLUE_50),
         ("G1", LIGHT_BLUE_100),
         ("G2", LIGHT_BLUE_200),
@@ -91,8 +115,12 @@ pub const COLOR_DATA: Colors = [
         ("G7", LIGHT_BLUE_700),
         ("G8", LIGHT_BLUE_800),
         ("G9", LIGHT_BLUE_900),
+        ("GA", LIGHT_BLUE_A100),
+        ("GB", LIGHT_BLUE_A200),
+        ("GC", LIGHT_BLUE_A400),
+        ("GD", LIGHT_BLUE_A700),
     ],
-    [
+    &[
         ("H0", CYAN_50),
         ("H1", CYAN_100),
         ("H2", CYAN_200),
@@ -103,8 +131,12 @@ pub const COLOR_DATA: Colors = [
         ("H7", CYAN_700),
         ("H8", CYAN_800),
         ("H9", CYAN_900),
+        ("HA", CYAN_A100),
+        ("HB", CYAN_A200),
+        ("HC", CYAN_A400),
+        ("HD", CYAN_A700),
     ],
-    [
+    &[
         ("I0", TEAL_50),
         ("I1", TEAL_100),
         ("I2", TEAL_200),
@@ -115,8 +147,12 @@ pub const COLOR_DATA: Colors = [
         ("I7", TEAL_700),
         ("I8", TEAL_800),
         ("I9", TEAL_900),
+        ("IA", TEAL_A100),
+        ("IB", TEAL_A200),
+        ("IC", TEAL_A400),
+        ("ID", TEAL_A700),
     ],
-    [
+    &[
         ("J0", GREEN_50),
         ("J1", GREEN_100),
         ("J2", GREEN_200),
@@ -127,8 +163,12 @@ pub const COLOR_DATA: Colors = [
         ("J7", GREEN_700),
         ("J8", GREEN_800),
         ("J9", GREEN_900),
+        ("JA", GREEN_A100),
+        ("JB", GREEN_A200),
+        ("JC", GREEN_A400),
+        ("JD", GREEN_A700),
     ],
-    [
+    &[
         ("K0", LIGHT_GREEN_50),
         ("K1", LIGHT_GREEN_100),
         ("K2", LIGHT_GREEN_200),
@@ -139,8 +179,12 @@ pub const COLOR_DATA: Colors = [
         ("K7", LIGHT_GREEN_700),
         ("K8", LIGHT_GREEN_800),
         ("K9", LIGHT_GREEN_900),
+        ("KA", LIGHT_GREEN_A100),
+        ("KB", LIGHT_GREEN_A200),
+        ("KC", LIGHT_GREEN_A400),
+        ("KD", LIGHT_GREEN_A700),
     ],
-    [
+    &[
         ("L0", LIME_50),
         ("L1", LIME_100),
         ("L2", LIME_200),
@@ -151,8 +195,12 @@ pub const COLOR_DATA: Colors = [
         ("L7", LIME_700),
         ("L8", LIME_800),
         ("L9", LIME_900),
+        ("LA", LIME_A100),
+        ("LB", LIME_A200),
+        ("LC", LIME_A400),
+        ("LD", LIME_A700),
     ],
-    [
+    &[
         ("M0", YELLOW_50),
         ("M1", YELLOW_100),
         ("M2", YELLOW_200),
@@ -163,8 +211,12 @@ pub const COLOR_DATA: Colors = [
         ("M7", YELLOW_700),
         ("M8", YELLOW_800),
         ("M9", YELLOW_900),
+        ("MA", YELLOW_A100),
+        ("MB", YELLOW_A200),
+        ("MC", YELLOW_A400),
+        ("MD", YELLOW_A700),
     ],
-    [
+    &[
         ("N0", AMBER_50),
         ("N1", AMBER_100),
         ("N2", AMBER_200),
@@ -175,8 +227,12 @@ pub const COLOR_DATA: Colors = [
         ("N7", AMBER_700),
         ("N8", AMBER_800),
         ("N9", AMBER_900),
+        ("NA", AMBER_A100),
+        ("NB", AMBER_A200),
+        ("NC", AMBER_A400),
+        ("ND", AMBER_A700),
     ],
-    [
+    &[
         ("O0", ORANGE_50),
         ("O1", ORANGE_100),
         ("O2", ORANGE_200),
@@ -187,8 +243,12 @@ pub const COLOR_DATA: Colors = [
         ("O7", ORANGE_700),
         ("O8", ORANGE_800),
         ("O9", ORANGE_900),
+        ("OA", ORANGE_A100),
+        ("OB", ORANGE_A200),
+        ("OC", ORANGE_A400),
+        ("OD", ORANGE_A700),
     ],
-    [
+    &[
         ("P0", DEEP_ORANGE_50),
         ("P1", DEEP_ORANGE_100),
         ("P2", DEEP_ORANGE_200),
@@ -199,8 +259,12 @@ pub const COLOR_DATA: Colors = [
         ("P7", DEEP_ORANGE_700),
         ("P8", DEEP_ORANGE_800),
         ("P9", DEEP_ORANGE_900),
+        ("PA", DEEP_ORANGE_A100),
+        ("PB", DEEP_ORANGE_A200),
+        ("PC", DEEP_ORANGE_A400),
+        ("PD", DEEP_ORANGE_A700),
     ],
-    [
+    &[
         ("Q0", BROWN_50),
         ("Q1", BROWN_100),
         ("Q2", BROWN_200),
@@ -212,7 +276,7 @@ pub const COLOR_DATA: Colors = [
         ("Q8", BROWN_800),
         ("Q9", BROWN_900),
     ],
-    [
+    &[
         ("R0", GREY_50),
         ("R1", GREY_100),
         ("R2", GREY_200),
@@ -224,7 +288,7 @@ pub const COLOR_DATA: Colors = [
         ("R8", GREY_800),
         ("R9", GREY_900),
     ],
-    [
+    &[
         ("S0", BLUE_GREY_50),
         ("S1", BLUE_GREY_100),
         ("S2", BLUE_GREY_200),
