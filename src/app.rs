@@ -36,7 +36,7 @@ impl App {
             color.iter().for_each(|color_variant| {
                 if color_variant.0.to_lowercase() == self.input.to_lowercase() {
                     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
-                    ctx.set_contents(color_variant.1.to_owned()).unwrap();
+                    ctx.set_contents(color_variant.1.to_string()).unwrap();
                     self.message = format!("{} copied to clipboard!", color_variant.1);
                 }
             })
