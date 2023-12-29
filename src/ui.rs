@@ -8,7 +8,7 @@ use ratatui::{
 };
 
 pub fn ui(f: &mut Frame, app: &App) {
-    let sq_height = f.size().height / (N_VARIANTS as u16 + 5);
+    let sq_height = (f.size().height - 5) / (N_VARIANTS as u16);
     let sq_width = f.size().width / (N_COLORS as u16);
 
     // Place left & top centered starting positions
@@ -21,7 +21,11 @@ pub fn ui(f: &mut Frame, app: &App) {
         pos.1 = top;
         for (i, color_var) in color.iter().enumerate() {
             let bg_color = color_var.1.into();
-            let text_color = if i < 5 { Color::Black } else { Color::White };
+            let text_color = if i < 5 || i > 9 {
+                Color::Black
+            } else {
+                Color::White
+            };
             f.render_widget(
                 Block::default()
                     .style(Style::default().bg(bg_color).fg(text_color))
@@ -33,6 +37,9 @@ pub fn ui(f: &mut Frame, app: &App) {
         }
         pos.0 += sq_width;
     }
+
+    // last colors are missing 4 variants
+    pos.1 += sq_height * 4;
 
     f.render_widget(
         Block::default()
