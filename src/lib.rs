@@ -13,10 +13,10 @@
 //! ## Usage
 //!
 //! ```rust
-//! use material_colors::colors;
+//! use material::colors::*;
 //!
-//! assert_eq!(colors::RED_50.to_string(), "#ffebee");
-//! assert_eq!(colors::RED_100.to_string(), "#ffcdd2");
+//! assert_eq!(RED_50.to_string(), "#ffebee");
+//! assert_eq!(RED_100.to_string(), "#ffcdd2");
 //! ```
 //!
 //! ## Ratatui
@@ -28,12 +28,16 @@
 //! ```
 //!
 //! ```rust
-//! use material_colors::colors;
+//! # #[cfg(feature = "ratatui")] {
+//! use material::colors::*;
 //! use ratatui::prelude::*;
 //!
-//! let line = Line::styled("hello world", Style::new().fg(colors::RED_50.into()));
+//! let line = Line::styled("hello world", Style::new().fg(RED_50.into()));
+//! # }
 //! ```
+
 use std::fmt::Display;
+
 #[cfg(feature = "ratatui")]
 use std::str::FromStr;
 
@@ -45,6 +49,7 @@ pub struct HexColor(&'static str);
 
 #[cfg(feature = "ratatui")]
 impl From<HexColor> for Color {
+    /// Converts to a Ratatui Color from the HexColor.
     fn from(hex_color: HexColor) -> Self {
         Color::from_str(hex_color.0).unwrap()
     }
