@@ -26,9 +26,14 @@ pub fn ui(f: &mut Frame, app: &App) {
             } else {
                 Color::White
             };
+            let style = if app.color_fg {
+                Style::default().fg(bg_color)
+            } else {
+                Style::default().bg(bg_color).fg(text_color)
+            };
             f.render_widget(
                 Block::default()
-                    .style(Style::default().bg(bg_color).fg(text_color))
+                    .style(style)
                     .title(color_var.0)
                     .title_alignment(Alignment::Center),
                 Rect::new(pos.0, pos.1, sq_width, sq_height),

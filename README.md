@@ -24,7 +24,9 @@ cargo install material --locked --features=cli
 ## Usage
 
 Run the command ``material`` in the terminal.
-Type the color code to copy its hex color to the clipboard. Type Esc to exit.
+Type the color code to copy its hex color to the clipboard.
+Type <kbd>T</kbd> to toggle between colors displayed as background or foreground.
+Type <kbd>Esc</kbd> to exit.
 
 ## As a library
 
