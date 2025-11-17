@@ -6,6 +6,8 @@ pub struct App {
     pub message: String,
     pub input: String,
     pub colors: &'static Colors,
+    /// Show each color as foreground (true) instead of background (false)
+    pub color_fg: bool,
 }
 
 impl App {
@@ -14,16 +16,21 @@ impl App {
             message: String::new(),
             input: String::new(),
             colors: &COLOR_DATA,
+            color_fg: false,
         }
     }
 
     pub fn handle_input(&mut self, c: char) {
-        if self.input.len() == 2 {
-            self.input = String::new();
-        }
-        self.input.push(c);
-        if self.input.len() == 2 {
-            self.color_search();
+        if c == 't' || c == 'T' {
+            self.color_fg = !self.color_fg;
+        } else {
+            if self.input.len() == 2 {
+                self.input = String::new();
+            }
+            self.input.push(c);
+            if self.input.len() == 2 {
+                self.color_search();
+            }
         }
     }
 
