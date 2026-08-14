@@ -36,7 +36,7 @@ pub fn ui(f: &mut Frame, app: &App) {
                     .style(style)
                     .title(color_var.0)
                     .title_alignment(Alignment::Center),
-                Rect::new(pos.0, pos.1, sq_width, sq_height),
+                Rect::new(pos.0, pos.1, sq_width, sq_height).intersection(f.size()),
             );
             pos.1 += sq_height;
         }
@@ -52,20 +52,20 @@ pub fn ui(f: &mut Frame, app: &App) {
             .border_type(BorderType::Rounded)
             .title("Type the color code to copy. Press Esc to exit.")
             .title_alignment(Alignment::Center),
-        Rect::new(left, pos.1, sq_width * N_COLORS as u16, sq_height + 3),
+        Rect::new(left, pos.1, sq_width * N_COLORS as u16, sq_height + 3).intersection(f.size()),
     );
 
     f.render_widget(
         Block::default()
             .title(String::from(&app.input.to_uppercase()))
             .title_alignment(Alignment::Center),
-        Rect::new(left, pos.1 + 1, sq_width * N_COLORS as u16, sq_height),
+        Rect::new(left, pos.1 + 1, sq_width * N_COLORS as u16, sq_height).intersection(f.size()),
     );
 
     f.render_widget(
         Block::default()
             .title(String::from(&app.message))
             .title_alignment(Alignment::Center),
-        Rect::new(left, pos.1 + 2, sq_width * N_COLORS as u16, sq_height),
+        Rect::new(left, pos.1 + 2, sq_width * N_COLORS as u16, sq_height).intersection(f.size()),
     );
 }
